@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "iris-classifier"
+version = "1.0.0"
+description = "Production TensorFlow Iris classifier with TensorBoard and FastAPI serving"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Iris Classifier Team" }]
+dependencies = [
+  "tensorflow>=2.15,<2.20",
+  "setuptools>=70,<81",
+  "scikit-learn>=1.4",
+  "numpy>=1.26",
+  "pandas>=2.1",
+  "pyyaml>=6.0",
+  "fastapi>=0.110",
+  "uvicorn[standard]>=0.27",
+  "pydantic>=2.6",
+  "pydantic-settings>=2.2",
+  "joblib>=1.3",
+  "matplotlib>=3.8",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "httpx>=0.27",
+  "ruff>=0.3",
+]
+
+[project.scripts]
+iris-train = "iris_classifier.cli:train_cli"
+iris-evaluate = "iris_classifier.cli:evaluate_cli"
+iris-serve = "iris_classifier.cli:serve_cli"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

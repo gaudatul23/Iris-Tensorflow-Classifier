@@ -1,0 +1,22 @@
+seed: 42
+data:
+  test_size: 0.2
+  val_size: 0.2
+  batch_size: 16
+model:
+  hidden_units: [16, 8]
+  dropout: 0.2
+  learning_rate: 0.01
+training:
+  epochs: 80
+  patience: 12
+paths:
+  artifacts_dir: artifacts
+  logs_dir: logs/tensorboard
+  model_name: iris_mlp
+  scaler_name: scaler.joblib
+  metadata_name: metadata.json
+api:
+  host: 0.0.0.0
+  port: 8000
+  model_dir: artifacts/saved_model

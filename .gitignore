@@ -1,0 +1,66 @@
+# Python
+
+**pycache**/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+
+.venv/
+venv/
+env/
+ENV/
+
+# Environment variables / secrets
+
+.env
+.env.*
+!.env.example
+
+# IDE
+
+.vscode/
+.idea/
+
+# OS
+
+.DS_Store
+Thumbs.db
+
+# Build / packaging
+
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Testing / coverage
+
+.pytest_cache/
+.coverage
+htmlcov/
+.coverage.*
+
+# Jupyter
+
+.ipynb_checkpoints/
+
+# TensorBoard
+
+logs/
+runs/
+
+# Generated ML artifacts
+
+artifacts/
+
+# Temporary files
+
+*.log
+*.tmp
+
+# Model/cache files
+
+.cache/
+**pycache**/

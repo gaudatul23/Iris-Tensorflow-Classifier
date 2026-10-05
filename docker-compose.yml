@@ -1,0 +1,26 @@
+services:
+  train:
+    build: .
+    command: python scripts/train.py
+    volumes:
+      - ./artifacts:/app/artifacts
+      - ./logs:/app/logs
+      - ./configs:/app/configs
+
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./artifacts:/app/artifacts
+    depends_on:
+      - train
+    command: python scripts/serve.py
+
+  tensorboard:
+    build: .
+    ports:
+      - "6006:6006"
+    volumes:
+      - ./logs:/app/logs
+    command: tensorboard --logdir logs/tensorboard --host 0.0.0.0 --port 6006
